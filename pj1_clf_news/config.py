@@ -11,7 +11,7 @@ dev_data = 'data/dev_data.txt'
 id_vocab_path = 'data/id_vocab.npz'
 
 model_path = 'data/{}.h5'
-
+use_emb = False
 # train
 
 batch_size = 64

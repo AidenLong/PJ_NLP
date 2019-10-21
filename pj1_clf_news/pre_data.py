@@ -20,13 +20,14 @@ def emb2mat(vocab):
     emb_mat = np.zeros((len(word2id), conf.emb_size))
     vec_dict = dict()
     print('word2id size: {}'.format(len(word2id)))
-    with open(conf.raw_emb_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            lines = line.rstrip().split()
-            if len(lines) == conf.emb_size + 1:
-                word = lines[0]
-                if word in word2id:
-                    vec_dict[word] = np.asarray(lines[1:], dtype='float32')
+    if conf.use_emb:
+        with open(conf.raw_emb_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                lines = line.rstrip().split()
+                if len(lines) == conf.emb_size + 1:
+                    word = lines[0]
+                    if word in word2id:
+                        vec_dict[word] = np.asarray(lines[1:], dtype='float32')
     print('vec_dict size: {}'.format(len(vec_dict)))
     # 根据字典生成词向量矩阵
     for word, id in word2id.items():

@@ -1,4 +1,5 @@
 import keras
+import numpy as np
 from pj1_clf_news.model import *
 import pj1_clf_news.config as conf
 from pj1_clf_news.dataset import Dataset
@@ -7,7 +8,7 @@ from sklearn.metrics import f1_score
 
 name_model = {'lstm': model_lstm, 'bilstm': model_bilstm, 'rcnn': model_rcnn,
               'rcnn_res': model_rcnn_res, 'cnn_res': model_cnn_res, 'cnn': model_cnn}
-model_name = 'cnn'
+model_name = 'rcnn'
 
 
 class MyCallback(Callback):
